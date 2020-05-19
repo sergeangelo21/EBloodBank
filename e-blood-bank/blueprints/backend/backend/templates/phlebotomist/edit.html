@@ -1,0 +1,170 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="/backend/phlebotomist" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+						<form action ="" method = "POST">
+							{{form.hidden_tag()}}
+							<div class="card-header">
+								<p class="card-header-title">Edit Phlebotomist</p>
+							</div>
+							<div class="card-content">
+								<div class="field">
+									{{form.surname.label(class='label')}}
+									<div class="control">
+										{{form.surname(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.first_name.label(class='label')}}
+									<div class="control">
+										{{form.first_name(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.middle_name.label(class='label')}}
+									<div class="control">
+										{{form.middle_name(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.birth_date.label(class='label')}}
+									<div class="control">
+										{{form.birth_date(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.blood_group.label(class='label')}}
+									<div class="control">
+										{{form.blood_group(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.civil_status.label(class='label')}}
+									<div class="control">
+										{{form.civil_status(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.gender.label(class='label')}}
+									<div class="control">
+										{{form.gender(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.nationality.label(class='label')}}
+									<div class="control">
+										{{form.nationality(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.religion.label(class='label')}}
+									<div class="control">
+										{{form.religion(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.education.label(class='label')}}
+									<div class="control">
+										{{form.education(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.occupation.label(class='label')}}
+									<div class="control">
+										{{form.occupation(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.house_no.label(class='label')}}
+									<div class="control">
+										{{form.house_no(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.street.label(class='label')}}
+									<div class="control">
+										{{form.street(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.barangay.label(class='label')}}
+									<div class="control">
+										{{form.barangay(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.town_municipality.label(class='label')}}
+									<div class="control">
+										{{form.town_municipality(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.province_city.label(class='label')}}
+									<div class="control">
+										{{form.province_city(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.type.label(class='label')}}
+									<div class="control">
+										{{form.type(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.zip_code.label(class='label')}}
+									<div class="control">
+										{{form.zip_code(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.telephone_no.label(class='label')}}
+									<div class="control">
+										{{form.telephone_no(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.mobile_no.label(class='label')}}
+									<div class="control">
+										{{form.mobile_no(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.email_address.label(class='label')}}
+									<div class="control">
+										{{form.email_address(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.username.label(class='label')}}
+									<div class="control">
+										{{form.username(class='input')}}
+									</div>
+								</div>
+								<div class="field">
+									{{form.password.label(class='label')}}
+									<div class="control">
+										{{form.password(class='input')}}
+									</div>
+								</div>
+								<hr>
+								{{form.submit(class='button is-primary')}}
+							</div>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock %}

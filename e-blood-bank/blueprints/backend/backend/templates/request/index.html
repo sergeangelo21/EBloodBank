@@ -1,0 +1,115 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+	<div class="column">
+		<div class="card box">
+			<div class="card-header">
+				<p class="card-header-title">Request</p>
+			</div>	
+			<div class="column">
+				<div class="card">
+					<div class="card-content">
+					    <div class="content">
+					      <article class="media">
+							  <div class="media-content">
+							    <div class="columns is-gapless">
+									&nbsp&nbsp
+									<div class="level-right">
+							    		<form action="" method="post">
+							    			<div class="field has-addons movetoleft is-dark	">
+											  <div class="control">
+											  	<div class="field has-addons">
+											  		{{form.hidden_tag()}}
+												  <div class="control">
+												    {{form.search.label}} : {{form.search}}
+												  </div>
+												  <div class="control">
+												    &nbsp; {{form.submit(class_='button is-info')}}
+												  </div>
+												</div>
+												{% if search!='#'%}
+												<div class="control">
+												    Showing result(s) for <b>'{{search}}'</b><br>
+												    
+												 </div>
+												{% endif %}
+											  </div>
+											</div>
+							    		</form>
+							    	</div>
+							  </div>
+							</article>
+					    </div>
+					</div>
+				  	<div class="tabs is-boxed">
+					  <ul>
+					    <li {% if filter=='all' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('backend.request', filter='all', search = search)}}">
+					        <span class="icon is-small"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+					        <span>All</span>
+					      </a>
+					    </li>
+					    <li {% if filter=='new' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('backend.request', filter='new', search = search)}}">
+					        <span class="icon is-small"><i class="fa fa-file" aria-hidden="true"></i></span>
+					        <span>New</span>
+					      </a>
+					    </li>
+					    <li {% if filter=='pending' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('backend.request', filter='pending', search = search)}}">		<span class="icon is-small"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+					        <span>Pending</span>
+					      </a>
+					    </li>
+					    <li {% if filter=='approved' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('backend.request', filter='approved', search = search)}}">
+					        <span class="icon is-small"><i class="fa fa-check" aria-hidden="true"></i></span>
+					        <span>Approved</span>
+					      </a>
+					    </li>
+					    <li {% if filter=='declined' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('backend.request', filter='declined', search = search)}}">		        <span class="icon is-small"><i class="fa fa-remove" aria-hidden="true"></i></span>
+					        <span>Declined</span>
+					      </a>
+					    </li>
+					  </ul>
+					</div>
+				</div>
+			</div>
+			<hr class="is-marginless">
+			<div class="card-content">
+				{% if status_count %}
+		        Total <b>{% if status!='#' %} {{filter}} {% endif %}</b> request(s): <b>{{status_count}}</b><br><br>
+				<table class="table is-fullwidth">
+					<thead>
+						<tr>
+							<th>Request ID</th>
+							<th>Requestor</th>
+							<th>Patient </th>
+							<th>Quantity</th>
+							<th>Blood Group</th>
+							{% if filter=='all' %}
+							<th>Status</th>
+							{% else %}
+							<th>Date {% if filter=='new' %} Submitted {% else %} Processed {% endif %}</th>
+							{% endif %}
+							<th>Actions</th>
+						</tr>
+					</thead>
+					
+					{% for request in request %}
+						{% include 'request/_request.html'%}
+					{% endfor %}
+					
+				</table>
+				{% else %}
+						<div class="card-content">
+
+							<center>No results found!</center>
+
+						</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>	
+{% endblock %}

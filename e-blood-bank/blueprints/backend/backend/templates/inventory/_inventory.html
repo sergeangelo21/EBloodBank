@@ -1,0 +1,37 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{ inventory.id }}</td>
+		{% if filter!='blood_group' %}
+			<td>{{ inventory.blood_group }}</td>
+		{% endif %}
+		{% if filter!='blood_bag' %}
+		<td>{{ inventory.bag_type }}</td>
+		{% endif %}
+		{% if filter!='hospital' %}
+		<td>{{ inventory.name }}</td>
+		{% endif %}
+		<td>{{ inventory.extraction_date.strftime('%B %d, %Y at %I:%M %p ') }}</td>	
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('backend.inventory_show', inventory_id=inventory.id)}}"><span class="icon is-small">
+						<i class="fa fa-eye"></i></span>&nbsp View</a>
+						<a class="dropdown-item" href=""><span class="icon is-small">
+						<i class="fa fa-edit"></i></span>&nbsp Edit</a>
+						<a class="dropdown-item confirm-delete" href=""><span class="icon is-small"><i class="fa fa-trash"></i></span>&nbsp Delete</a>
+					</div>
+				</div>
+			</div>
+
+		</td>
+	</tr>	
+</tbody>

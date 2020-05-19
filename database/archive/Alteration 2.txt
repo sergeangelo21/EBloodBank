@@ -1,0 +1,1 @@
+ALTER TABLE `blood_resource` CHANGE `extraction_date` `extraction_date` DATETIME NOT NULL, CHANGE `cost` `cost` DECIMAL(6,2) NOT NULL;

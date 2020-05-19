@@ -1,0 +1,138 @@
+{% extends "admin_hospital-base.html" %}
+
+{% block content %}
+
+	<div class="column">
+		<div class="card box">
+			<div class="card-header">
+				<p class="card-header-title">Inventory</p>
+			</div>	
+
+			<nav class="level">
+				<div class="level-left">
+					<div class="level-item">
+						<div class="card-content field has-addons">
+							<a href="{{ url_for('admin_hospital.inventory_add') }}" class="button is-primary">
+								<span class="icon is-small">
+									<i class="fa fa-plus"></i>
+								</span>
+								<span>Add</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="column">
+
+				<div class="card">
+				  	<div class="tabs is-boxed">
+					  <ul>
+					    <li {% if filter=='all' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('admin_hospital.inventory', filter = 'all', search = '#')}}">
+					      	<span class="icon is-small"><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+					        <span>All</span>
+					      </a>
+					    </li>
+					    <li {% if filter=='blood_group' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('admin_hospital.inventory', filter = 'blood_group', search = '#')}}">
+					        <span class="icon is-small"><i class="fa fa-heart" aria-hidden="true"></i></span>
+					        <span>Blood Group</span>
+					      </a>
+					    </li>
+						<li {% if filter=='blood_bag' %} class="is-active" {% endif %}>
+					      <a href = "{{url_for('admin_hospital.inventory', filter = 'blood_bag', search = '#')}}">
+					        <span class="icon is-small"><i class="fa fa-plus-square" aria-hidden="true"></i></span>
+					        <span>Blood Bag</span>
+					      </a>
+					    </li>
+
+					  </ul>
+					</div>
+					<div class="card-content">
+					    <div class="content">
+					      <article class="media">
+							  <div class="media-content">
+							    <div class="columns is-gapless">
+									&nbsp&nbsp
+
+									<div class="level-right">
+										{% if filter=='all'%}
+							    		<form action="" method="post">
+							    			{{form.hidden_tag()}}
+							    			<div class="field has-addons movetoleft is-dark	">
+											  <div class="control">
+											  	{{form.search.label}} : {{form.search}}
+											  	{{form.submit(class_="button is-info")}}
+								  				{% if search=='#' %}
+							    				 <br><br> Showing all blood resources
+							    				 <br>Total: <b>{{count}}</b>
+							    				{% else %}
+							    				 <br><br> Showing result(s) for: <b>'{{search}}'</b> <br>Total: <b>{{count}}</b>
+							    				{% endif %}
+											  </div>
+											</div>
+							    		</form>
+							    		{% else %}
+							    		<form action="" method="post">
+							    			{{form.hidden_tag()}}
+							    			<div class="field has-addons movetoleft is-dark	">
+											  <div class="control">
+											  	 {{form.search.label}} : {{form.search}}
+											  	{{form.submit(class_="button is-info")}}
+											  	{% if search!='#' %}
+							    				 <br><br> Showing result(s) for: <b>'{{search}}'</b> <br>Total: <b>{{count}}</b>
+							    				{% endif %}
+											  </div>
+											</div>
+							    		</form>
+							    		{% endif %}
+							    	</div>
+							    </div>
+							  </div>
+							</article>
+					    </div>
+					</div>
+				</div>
+			</div>
+					{% if count>0 %}
+					<hr class="is-marginless">
+					<div class="card-content">
+						<table class="table is-fullwidth">
+							<thead>
+								<tr>
+									<th>Serial No.</th>
+									{% if filter!='blood_group' %}
+									<th>Blood Group</th>
+									{% endif %}
+									{% if filter!='blood_bag' %}
+									<th>Bag Type</th>
+									{% endif %}
+									{% if filter!='hospital' %}
+									<th>Blood Center</th>
+									{% endif %}
+									<th>Extraction Date</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							{% for inventory in query %}
+								{% include 'admin_hospital/inventory/_admin_hospital_inventory.html' %}
+							{% endfor %}
+						</table>
+					</div>
+					{% else %}
+						
+						{% if search!='#' %}
+						<hr class="is-marginless">
+						<div class="card-content">
+
+							<center>No results found!</center>
+
+						</div>
+						{% endif %}
+
+					{% endif %}
+				</div>
+			</div>
+
+{% endblock %}

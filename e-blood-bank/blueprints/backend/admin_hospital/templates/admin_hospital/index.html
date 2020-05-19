@@ -1,0 +1,50 @@
+{% extends "admin_hospital-base.html" %}
+
+{% block content %}
+				<div class="column">
+    <div class="card box">
+        <div class="card-header">
+            <p class="card-header-title">Dashboard</p>
+        </div><br>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+        <div class="tile is-child is-6">
+          {{ pie_chart.render().decode('utf-8')|safe }}
+        </div>
+                <div class="tile is-child is-1">
+                </div>
+                <div class="tile is-child is-5">
+                    <table>
+                        <tr>
+                            <td class="has-text-centered has-text-weight-bold is-size-5">
+                                Blood Group
+                            </td>
+                            <td class="has-text-centered has-text-weight-bold is-size-5">
+                                Quantity
+                            </td>
+                        </tr>
+                    {% for query in query %}
+                        <tr>
+                            <td width="200" class="has-text-centered has-text-weight-bold is-size-4">
+                                {{ query[0] }}:
+                            </td>
+                            <td class="has-text-centered has-text-weight-bold is-size-4">
+                                {{ query[1] }}
+
+                                {% if query[1] == 1 %}
+                                pc.
+                                {% else %}
+                                pcs.
+                                {% endif %}
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

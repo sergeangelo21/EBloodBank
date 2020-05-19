@@ -1,0 +1,137 @@
+ <!DOCTYPE html>
+<html>
+<head>
+        {% if title %}
+        <title>{{ title }} | eBloodBank</title>
+        {% else %}
+        <title>eBloodBank</title>
+        {% endif %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+
+    <nav class="navbar is-danger">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+
+                 <a href={{url_for('users.home')}} class="navbar-item">
+                    <img src="">
+                    <strong>eBloodBank</strong></a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="#" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-heart"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-bell"></i>
+                        </span>
+                    </a>
+                    <a href="{{url_for ('users.messages')}}" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable ">
+                        <a href="#" class="navbar-link">
+                            <i class="fa fa-user"></i></a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a href="{{url_for ('users.profile', user=current_user.user_id)}}" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                <i class="fa fa-user-circle"></i>
+                                </span>
+                                &nbsp User
+                            </a>
+                            </a>
+                            <a href="{{url_for ('users.setting', user=current_user.user_id)}}" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                    <i class="fa fa-gear"></i>
+                                </span>
+                                &nbsp Settings
+                            </a>
+                            </a>
+                            <a href="{{url_for ('login.logout')}}" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                    <i class="fa fa-sign-out"></i>
+                                </span>
+                                &nbsp Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+            <div class="columns">
+                <div class="column is-2">
+                    <aside class="menu">
+                      <p class="menu-label">
+                        Menu
+                      </p>
+                      <ul class="menu-list">
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.home')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-home"></i>
+                            </span>
+                            Home</a>                                                
+                        </li>
+
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.request')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-exclamation-circle"></i>
+                            </span>
+                            Request</a>
+                        </li>
+
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.donors')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-users"></i>
+                            </span>
+                            Donors</a>
+                        </li>
+
+                         <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.events')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-calendar"></i>
+                            </span>
+                            Events</a>
+                        </li>
+
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.prcc')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-plus-square"></i>
+                            </span>
+                            PRC-C</a>
+                        </li>
+
+                         <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('users.help')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-question-circle"></i>
+                            </span>
+                            Help</a>
+                        </li>
+
+                      </ul>
+                    </aside>
+                </div>
+
+                {% block content %} {% endblock %}
+</body>
+</html>

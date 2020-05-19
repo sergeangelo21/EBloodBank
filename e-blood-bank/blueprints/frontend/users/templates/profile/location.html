@@ -1,0 +1,123 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+	<div class="column">
+		<div class="card box">
+			<div class="columns">
+				<div class="column is-3">
+					<figure class="image is-132x132">
+			            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-bUtMrovoWkw733UD5sQCF6aaw5VCug-B8Wi3CCvAtaBpS8JMA">
+			        </figure>
+				</div>
+				<div class="column is-9">
+					<br><br><br>
+					<p  class="is-size-3 has-text-weight-bold">{{ user.first_name }} {{ user.surname }}</p>
+					<p class="is-size-6 has-text-info">{{ user.email_address }}</p>
+					<br>
+					<br>
+					 <nav class="level is-mobile">
+					  <div class="level-item has-text-centered">
+					    <div>
+					     
+					      <p class="title">{{ user.blood_group }}</p>
+					    </div>
+					  </div>
+					  <div class="level-item has-text-centered">
+					    <div>
+					      
+					      <p class="title">4 Units</p>
+					    </div>
+					  </div>
+					  <div class="level-item has-text-centered">
+					    <div>
+					    	{% if user.is_donor == "Y" %}
+					    	<p class="title">I am a donor.</p>
+					    	{% else %}
+					    	<p class="title">I am not a donor.</p>
+					    	{% endif %}
+					    </div>
+					  </div>
+					</nav>
+				</div>
+					
+			</div>
+
+			<div class="columns is-gapless">
+				<div class="column">
+					<div class="card">
+					  <div class="tabs is-boxed">
+						  <ul>
+						    <li>
+						      <a href = "{{ url_for('users.profile', user=current_user.user_id) }}">
+						        <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
+						        <span>Personal</span>
+						      </a>
+						    </li>
+						    <li class="is-active">
+						      <a href = "{{ url_for('users.profile_location', user=current_user.user_id) }}">
+						        <span class="icon is-small"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+						        <span>Location</span>
+						      </a>
+						    </li>
+						    <li>
+						      <a href = "{{ url_for('users.profile_education', user=current_user.user_id) }}">
+						        <span class="icon is-small"><i class="fa fa-mortar-board" aria-hidden="true"></i></span>
+						        <span>Education and Work</span>
+						      </a>
+						    </li>
+						    <li>
+						      <a href = "{{ url_for('users.profile_contact', user=current_user.user_id) }}">
+						        <span class="icon is-small"><i class="fa fa-phone" aria-hidden="true"></i></span>
+						        <span>Contact</span>
+						      </a>
+						    </li>
+						    <li>
+						      <a href = "#">
+						        <span class="icon is-small"><i class="fa fa-child" aria-hidden="true"></i></span>
+						        <span>Recent Physical</span>
+						      </a>
+						    </li>
+						    <li>
+						      <a href = "#">
+						        <span class="icon is-small"><i class="fa fa-qrcode" aria-hidden="true"></i></span>
+						        <span>Scan QR code</span>		
+						      </a>
+						    </li>
+						    <li>
+						      </a>
+						    </li>
+						  </ul>
+						</div>
+						 <div class="card-content">
+						    <div class="content">
+						      <article class="media">
+								  <div class="media-content">
+								    <div class="columns is-gapless">
+								    	<div class="column is-4">
+										    House no.: <br>
+										    Street:<br>
+										    Barangay: <br>
+										    Town Municipality: <br>
+										    Province: <br>
+									    </div>
+									    <div class="column">
+								    		{{ user.house_no }} <br>
+								    		{{ user.street }} <br>
+								    		{{ user.barangay }} <br>
+								    		{{ user.town_municipality }} <br>
+								    		{{ user.province_city }}<br>
+								    	</div>
+								    </div>
+								  </div>
+								</article>
+						    </div>
+						</div>
+						  
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

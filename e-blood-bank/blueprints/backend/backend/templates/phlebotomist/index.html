@@ -1,0 +1,52 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+<div class="column">
+	<div class="card box">
+		<div class="card-header">
+			<p class="card-header-title">Phlebotomist</p>
+		</div>
+
+		<nav class="level">
+			
+			<div class="level-left">
+
+				<div class="level-item">
+
+					<div class="card-content field has-addons">
+						
+						<a href="{{url_for('backend.phlebotomist_add')}}" class="button is-primary">
+							<span class="icon is-small">
+								<i class="fa fa-plus"></i>
+							</span>
+							<span>Add</span>
+						</a>
+
+					</div>
+					
+				</div>
+				
+			</div>
+		</nav>
+
+		<hr class="is-marginless">
+		<div class="card-content">
+			<table class="table is-fullwidth">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Address</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				{% for phlebotomist in phlebotomist %}
+					{% include 'phlebotomist/_phlebotomist.html' %}
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+<div class="column">
+	<div class="columns">
+		<div class="column"><br>
+			<a href="/backend/events" class="button">
+				<span class="icon is-small">
+    				<i class="fa fa-long-arrow-left"></i>
+				</span>
+				<span>Back</span>
+			</a>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column">
+			<div class="card box">
+				<form action ="" method = "POST">
+				{{forms.hidden_tag()}}
+				<div class="card-header">
+		            <p class="card-header-title">Add Event</p>
+		        </div><br>
+
+				<div class="card box">
+					<form action="" method="POST">
+						{{ forms.hidden_tag() }}
+						<div class="field">
+							{{ forms.name.label(class_='label')}}
+							<div class="control has-icons-left">
+								{{ forms.name(class_='input') }}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-calendar-o"></i>
+                                </span>
+								{% for error in forms.name.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.description.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.description(class_='input')}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-pencil"></i>
+                                </span>
+								{% for error in forms.description.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.venue.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.venue(class_='input')}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-map-marker"></i>
+                                </span>
+								{% for error in forms.venue.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.organizer.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.organizer(class_='input')}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-user-o"></i>
+                                </span>
+								{% for error in forms.organizer.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.event_date.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.event_date(class_='input', type="date")}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+								{% for error in forms.event_date.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.username.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.username(class_='input')}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+								{% for error in forms.username.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<div class="field">
+							{{forms.password.label(class='label')}}
+							<div class="control has-icons-left">
+								{{forms.password(class_='input')}}
+								<span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+								{% for error in forms.password.errors %}
+	                            <span style="color: red;">[{{ error }}]</span>
+	                            {% endfor %}
+							</div>
+						</div>
+						<hr>
+
+						{{ forms.submit(class_='button is-primary')}}
+						</form>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

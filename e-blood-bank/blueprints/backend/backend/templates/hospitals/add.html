@@ -1,0 +1,135 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+            <div class="column">
+                <div class="columns">
+                    <div class="column"><br>
+                        <a href="/backend/hospitals" class="button">
+                            <span class="icon is-small">
+                                <i class="fa fa-long-arrow-left"></i>
+                            </span>
+                            <span>Back</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <div class="card box">
+                            <div class="card-header">
+                                <p class="card-header-title">Add Hospital</p>
+                            </div><br>
+						<div class="card box">
+							<form action="" method="POST" onsumbit="test">
+								<div class="field">
+									{{ forms.name.label(class_='label')}}
+									<div class="control has-icons-left">
+										{{ forms.name(class_='input') }}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-hospital-o"></i>
+			                            </span>
+										{% for error in forms.name.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<div class="field">
+									{{forms.address.label(class='label')}}
+									<div class="control has-icons-left">
+										{{forms.address(class_='input')}}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-map-marker"></i>
+			                            </span>
+										{% for error in forms.address.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<div class="field">
+									{{forms.email.label(class='label')}}
+									<div class="control  has-icons-left">
+										{{forms.email(class_='input')}}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-envelope-o"></i>
+			                            </span>
+										{% for error in forms.email.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<div class="field">
+									{{forms.telephone.label(class='label')}}
+									<div class="control has-icons-left">
+										{{forms.telephone(class_='input')}}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-phone"></i>
+			                            </span>
+										{% for error in forms.telephone.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<div class="field">
+									{{forms.username.label(class='label')}}
+									<div class="control has-icons-left">
+										{{forms.username(class_='input')}}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-user"></i>
+			                            </span>
+										{% for error in forms.username.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<div class="field">
+									{{forms.password.label(class='label')}}
+									<div class="control has-icons-left">
+										{{forms.password(class_='input')}}
+										<span class="icon is-small is-left">
+			                                <i class="fa fa-lock"></i>
+			                            </span>
+										{% for error in forms.password.errors %}
+			                            <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+									</div>
+								</div>
+								<hr>
+								{{ forms.submit(class_='button is-primary', id="showModal")}}
+
+								<div class="modal">
+								  	<div class="modal-background"></div>
+								  	<div class="modal-content">
+								     	<div class="box">
+										  <div class="box-content">
+										    <div class="content">
+										      <p class="has-text-centered title is-5">{{message}}</p>		        
+										      <p class="has-text-centered">
+										      		<button class="button ok is-success">OK</button>
+										 	 	</p>
+										    </div>
+										  </div>
+										</div>
+								  	</div>
+								</div>
+
+							</form>	
+
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0.axios.js"></script>
+								
+							<script>
+								$(document).ready(function() {
+								$("#showModal").click(function() {
+								  $(".modal").addClass("is-active");  
+								});
+
+								$(".ok").click(function() {
+								   $(".modal").removeClass("is-active");
+								});
+								});
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock %}

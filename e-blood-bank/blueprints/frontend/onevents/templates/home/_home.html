@@ -1,0 +1,26 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{ showevents.name }}</td>
+		<td>{{ showevents.description }}</td>
+		<td>{{ showevents.venue }}</td>
+		<td>{{ showevents.event_date }}</td>
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('onevents.onevent_show', events_id=showevents.id)}}">View</a>
+					</div>
+				</div>
+			</div>
+
+		</td>
+	</tr>	
+</tbody>

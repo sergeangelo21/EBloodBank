@@ -1,0 +1,180 @@
+
+<table class="table is-hoverable is-fullwidth" id = "event">
+
+	<tbody>
+
+		<tr class = "table">
+			<td>
+			<table class = "table is-bordered is-hoverable is-fullwidth">
+				<tr class="table-row">
+
+					<td colspan="1" id="prev"><button id="prev" onclick="prev_next(this.id)"><<</button></td>
+
+					<td colspan="5" id="month_year" style = "text-align:center"></td>
+
+					<td colspan="1" id="next"><button id="next" onclick="prev_next(this.id)">>></button></td>
+
+				</tr>	
+
+				<tr class="table-row">
+
+					<td width = "14%">Su</td>
+					<td width = "14%">Mo</td>
+					<td width = "14%">Tu</td>
+					<td width = "14%">We</td>
+					<td width = "14%">Th</td>
+					<td width = "14%">Fr</td>
+					<td width = "14%">Sa</td>
+
+				</tr>
+			</table>
+			</td>
+		</tr>
+
+		<tr class = "table-row">
+
+			<td colspan = 7 id = "calendar"> </td>
+
+
+		</tr>	
+
+	</tbody>
+
+</table>
+
+
+<script>
+
+	var today = new Date()
+	var month = today.getMonth() + 1
+	var year = today.getFullYear()
+
+	window.onload = function() {
+
+		var first_day = new Date(year + '-' + month + '-1')
+		var last_day = new Date(year, month , 0)
+		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var disp
+
+		document.getElementById('month_year').innerHTML=months[month-1] + ' ' + year
+
+		var calendar = Calendar(first_day, last_day, month, year)
+
+		document.getElementById('calendar').appendChild(calendar)
+
+	} 
+
+	function prev_next(sender){
+
+		document.getElementById('calendar').innerHTML=""
+
+		if (sender=="prev") {
+			month = month - 1
+			if (month<1){
+				month = 12
+				year = year - 1
+			}
+		}
+
+		if (sender=="next")
+		{
+			month = month + 1
+
+			if (month>12){
+				month = 1
+				year = year + 1
+			}
+
+		}
+
+		var first_day = new Date(year + '-' + month + '-1')
+		var last_day = new Date(year, month , 0)
+		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var disp
+
+		document.getElementById('month_year').innerHTML=months[month-1] + ' ' + year
+
+		var calendar = Calendar(first_day, last_day, month, year)
+
+		document.getElementById('calendar').appendChild(calendar)
+
+	}
+
+	function Calendar(min, max, month, year){
+
+		var table = document.createElement('table')
+		var last = max.getDate()
+		var start_day = min.getDay()
+		var col
+		var day=1
+		var sw = 0
+		var name = ''
+
+
+		table.className ="table is-bordered is-hoverable is-fullwidth"
+
+		while(day<=last){
+
+			var tr = document.createElement('tr')
+
+				for (col=0; col<=6; col++){
+					
+					var td = document.createElement('td')
+					td.style.width= "14%"
+
+					name = ''
+
+					{% for e in events %}
+
+						if ({{e.event_date.strftime('%e')}}==day && {{e.event_date.strftime('%m')}} ==month && {{e.event_date.strftime('%Y')}} ==year){
+							name = name + '{{e.name}}<br>'
+							td.className = "is-selected"
+						}
+						else{
+							name = 	name + ''
+						}
+
+					{% endfor %}
+
+					 
+					if (sw==0 && day<=last){
+
+						if (col>=start_day){
+
+							td.innerHTML=day+'<br><a href = "{{url_for('users.events_show', event_id=id)}}">'+name+'</a>'
+							tr.appendChild(td)
+							sw=1
+							day++
+						}
+
+						else{
+
+							td.innerHTML=''
+							tr.appendChild(td)
+						}
+
+					}
+					else if (sw==1 && day<=last){
+							td.innerHTML=day+'<br><a href = "{{url_for('users.events_show', event_id=id)}}">'+name+'</a>'
+							tr.appendChild(td)
+							sw=1
+							day++						
+					}
+					else{
+							td.innerHTML=''
+							tr.appendChild(td)
+							sw=1
+							day++
+					}
+				}	
+			
+				table.appendChild(tr)
+
+		}
+
+		return table
+
+	}
+
+
+</script>

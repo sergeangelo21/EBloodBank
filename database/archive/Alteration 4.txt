@@ -1,0 +1,10 @@
+UPDATE `blood_center` SET `account_id` = '1' WHERE `blood_center`.`id` = 1;
+
+UPDATE `user_account` SET `user_id` = '1' WHERE `user_account`.`id` = 1
+
+
+ALTER TABLE `blood_request` ADD `remarks` VARCHAR(10) NOT NULL AFTER `date_processed`;
+
+ALTER TABLE `blood_resource` ADD `status` CHAR(1) NOT NULL;
+
+ALTER TABLE `blood_request` CHANGE `date_processed` `date_processed` DATETIME NULL DEFAULT NULL;

@@ -1,0 +1,166 @@
+{% extends "login-base.html" %}
+
+{% block content %}
+
+<style>
+body{
+                margin:0;
+                padding: 0;
+            }
+	p
+	{
+		color: black;
+		display: block;
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	a
+	{
+		color:#3273dc;
+	}
+
+	a:hover
+	{
+		color:#a41414;
+	}
+
+	p:hover{
+		color:#3273dc;
+	}	
+
+	.inputcolor{
+		border-color: lightgray;
+		border-width: 3px;
+		
+
+	}
+
+	.color
+	{
+
+		color: white;
+		background-color: #7b0100;
+
+	}
+	.margin
+	{
+		margin-top: 230px;
+		margin-right: 40px;
+	}
+	.margins
+	{
+		margin-top: 30px;
+		
+	}
+	.logo
+	{	
+	 	width: 300px;
+	 	margin-left: 100px;
+	 	margin-right: 100px;		
+		
+	}
+		
+	.margin-right
+	{
+		margin-top: 40px;
+		margin-right: 40px;
+	}
+
+	div.transbox
+	{
+	background-image: url();			
+	border-radius:0;								 
+	}
+	.clear{
+		clear:both;
+	}
+	.button{
+		width: 200px;
+		height:50px; 
+		float: right;
+	}
+	.button:hover{
+		color: white;
+	}
+	.borderline{
+		border-color:solid black 1px; 
+	}
+	html 
+	{
+  		overflow-y: hidden;
+	}
+
+</style>
+
+
+<div class="columns">
+	<div class="column is-6">
+		<figure class="avatar margin">
+			<img src="{{ url_for('static', filename='frontend/login/images/tag.png') }}">
+		</figure>
+	</div>
+	<div class="column is-6">
+		<div class="box transbox">
+			<div class="columns">
+				<div class="column">
+						
+				</div>
+
+				<div class="column is-10">					
+			                <form method="POST">
+			                	{{ form.hidden_tag() }}
+			                	<div class="columns has-text-centered">
+			                		<div class="column">
+			                			<div class="margins"></div>
+			                		<figure class="logo">
+			                    <img src="{{ url_for('static', filename='frontend/login/images/logo1.png') }}">
+			                </figure>			                				
+			                			<div class="field">
+		  									<label class="label has-text-dark">Login</label>
+		 									<div class="control has-icons-left has-icons-right">
+		 										{{ form.username(class_='input inputcolor', placeholder="Username") }}
+		    									<span class="icon is-small is-left">
+		      										<i class="fa fa-user"></i>
+		    									</span>
+		    									{% for error in form.username.errors %}
+					                        	<span style="color: red;">[{{ error }}]</span>
+					                        	{% endfor %}
+		  									</div>
+										</div>
+
+										<div class="field">
+		  									<div class="control has-icons-left has-icons-right">
+		   										{{ form.password(class_='input inputcolor', placeholder="Password") }}
+		    									<span class="icon is-small is-left">
+		      										<i class="fa fa-key"></i>
+		    									</span>
+		    									{% for error in form.username.errors %}
+				                       			<span style="color: red;">[{{ error }}]</span>
+				                        		{% endfor %}
+		  									</div>				
+										</div>
+
+										<div class="field">
+		                            	{{ form.remember_me() }} {{ form.remember_me.label }}<br>    </div>
+		                            	<br>
+										<p>{{ form.submit(class_='button color') }} </p>
+																
+										<br>
+										<p>New User? &nbsp; <a href="{{ url_for('login.signup') }}">Click to Register!</a></p>
+										<br>
+			                		</div>
+			                	</div>	
+			     		<div class="margins"></div>           		                	
+			                </form>	
+				</div>
+
+				<div class="column is-1">
+					
+				</div>
+
+			</div>
+		</div>
+	</div>	
+</div>
+{% endblock %}

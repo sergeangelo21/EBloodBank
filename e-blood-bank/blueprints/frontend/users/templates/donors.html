@@ -1,0 +1,56 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+	<style>
+		.image {
+			border: 1px solid black;
+			border-radius: 100%;
+			width: 80px; 
+		}
+	</style>
+</head>
+
+<div class="column" >
+    <div class="card box">
+        <div class="card-header">
+            <p class="card-header-title">Donors</p>
+        </div>
+        <br>
+        <div class="card box">
+            <div class="tile is-parent">
+                <div class="tile is-child">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                            <div class="columns">
+                                <div class="column">
+                                    {% for donors in donors %}
+                                    <article class="media">
+                                        <figure class="media-left">
+                                            <p class="image is-96x96">
+                                              <img  src="https://www.brightfind.com/images/services/design/icon-design-users.png">
+                                            </p>
+                                        </figure>
+                                        <div class="media-content">
+                                            <div class="content">
+                                              <p>
+                                                <strong>{{donors.first_name}} {{donors.surname}}</strong>
+                                                <br>
+                                                Email: {{donors.email_address}} <br>
+                                                Location: {{donors.town_municipality}}, {{donors.province_city}}
+                                              </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
+</div>
+
+{% endblock %}

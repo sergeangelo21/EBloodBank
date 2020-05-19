@@ -1,0 +1,85 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="/backend/phlebotomist" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<div class="card-header">
+								<p class="card-header-title">Phlebotomist Information</p>
+							</div>
+							<div class="card-content">
+								<table class="table is-fullwidth">
+									<tbody>
+										<tr>
+											<th width="200">Name</th>
+											<td>{{ phlebotomist.first_name }} {{ phlebotomist.middle_name }} {{ phlebotomist.surname }}</td>
+										</tr>
+										<tr>
+											<th width="200">E-mail Address</th>
+											<td>{{ phlebotomist.email_address }}</td>
+										</tr>
+										<tr>
+											<th width="200">Address</th>
+											<td>{{ phlebotomist.zip_code }} {{ phlebotomist.house_no }} {{ phlebotomist.street }} {{ phlebotomist.barangay }} {{ phlebotomist.town_municipality }} {{ phlebotomist.province_city }}</td>
+										</tr>
+										<tr>
+											<th width="200">Birth Date</th>
+											<td>{{ phlebotomist.birth_date }}</td>
+										</tr>
+										<tr>
+											<th width="200">Blood Group</th>
+											<td>{{ phlebotomist.blood_group }}</td>
+										</tr>
+										<tr>
+											<th width="200">Civil Status</th>
+											<td>{{ phlebotomist.civil_status }}</td>
+										</tr>
+										<tr>
+											<th width="200">Gender</th>
+											<td>{{ phlebotomist.gender }}</td>
+										</tr>
+										<tr>
+											<th width="200">Nationality</th>
+											<td>{{ phlebotomist.nationality }}</td>
+										</tr>
+										<tr>
+											<th width="200">Religion</th>
+											<td>{{ phlebotomist.religion }}</td>
+										</tr>
+										<tr>
+											<th width="200">Education</th>
+											<td>{{ phlebotomist.education }}</td>
+										</tr>
+										<tr>
+											<th width="200">Occupation</th>
+											<td>{{ phlebotomist.occupation }}</td>
+										</tr>
+										<tr>
+											<th width="200">Telephone No.</th>
+											<td>{{ phlebotomist.telephone_no }}</td>
+										</tr>
+										<tr>
+											<th width="200">Mobile No.</th>
+											<td>{{ phlebotomist.mobile_no }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}

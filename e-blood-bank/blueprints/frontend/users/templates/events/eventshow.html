@@ -1,0 +1,56 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="/events" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<div class="card-header">
+								<p class="card-header-title">Event Information</p>
+							</div>
+							<div class="card-content">
+								<table class="table is-fullwidth">
+									<tbody>
+										<tr>
+											<th width="200">Name</th>
+											<td>{{ event.name }}</td>
+										</tr>
+										<tr>
+											<th width="200">Description</th>
+											<td>{{ event.description }}</td>
+										</tr>
+										<tr>
+											<th width="200">Venue</th>
+											<td>{{ event.venue }}</td>
+										</tr>
+										<tr>
+											<th width="200">Organizer</th>
+											<td>{{ event.organizer }}</td>
+										</tr>
+										<tr>
+											<th width="200">Event Date</th>
+											<td>{{ event.event_date }}</td>
+										</tr>
+										<tr>
+											<td><a href="{{url_for('users.events_join', event_id= event.id)}}"><button class="button is-primary">Participate</button></a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}

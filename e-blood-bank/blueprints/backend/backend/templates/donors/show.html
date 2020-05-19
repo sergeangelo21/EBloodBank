@@ -1,0 +1,73 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="/backend/donors" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<div class="card-header">
+								<p class="card-header-title">Donors Information</p>
+							</div>
+							<div class="card-content">
+								<table class="table is-fullwidth">
+									<tbody>
+										<tr>
+											<th width="200">Name</th>
+											<td>{{ donors.first_name}} {{ donors.surname}}</td>
+										</tr>
+										<tr>
+											<th width="200">E-mail Address</th>
+											<td>{{ donors.email_address }}</td>
+										</tr>
+										<tr>
+											<th width="200">Location</th>
+											<td>{{ donors.house_no }} {{ donors.street }}, Brgy. {{ donors.barangay }}, {{ donors.zip_code }} {{ donors.province_city }},{{ donors.town_municipality }}  </td>
+										</tr>
+										<tr>
+											<th width="200">Birthdate</th>
+											<td>{{ donors.birth_date}}</td>
+										</tr>
+										<tr>
+											<th width="200">Blood Group</th>
+											<td>{{ donors.blood_group }}</td>
+										</tr>
+										<tr>
+											<th width="200">Civil Status</th>
+											<td>{{ donors.civil_status }}</td>
+										</tr>
+										<tr>
+											<th width="200">Gender</th>
+											<td>{{ donors.gender}}</td>
+										</tr>
+										<tr>
+											<th width="200">Nationality</th>
+											<td>{{ donors.nationality}}</td>
+										</tr>
+										<tr>
+											<th width="200">Mobile no.</th>
+											<td>{{ donors.mobile_no}}</td>
+										</tr>
+										<tr>
+											<th width="200">Occupation</th>
+											<td>{{ donors.occupation}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}

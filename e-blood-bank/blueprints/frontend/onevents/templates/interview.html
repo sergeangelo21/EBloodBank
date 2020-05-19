@@ -1,0 +1,70 @@
+{% extends "onevents-base.html" %}
+
+{% block content %}
+
+	<div class="columns">
+	  <div class="column notification is-white">
+		<div class="tile is-parent">
+			<div class="box">
+
+		 		<table class="table">
+		 			<thead>
+		 				<tr>
+		 					<th></th>
+		 					<th></th>
+		 					<th class="has-text-centered">YES</th>
+		 					<th class="has-text-centered">NO</th>
+		 					<th class="has-text-centered">REMARKS</th>
+		 				</tr>
+		 			</thead>
+
+		 			<tbody>
+
+		 				{% for category in categories %}
+
+		 					{% if category.header!=None %}
+
+		 						<tr>
+			 					<td></td>
+			 					<td class="has-text-weight-bold">{{category.header}}</td>
+			 					</tr>
+
+		 					{% endif %}
+
+		 					{% for q in questions %}
+
+		 						{% if q.header == category.header %}
+
+									<tr>			 						
+			 						<td class="has-text-weight-bold">{{q.id}}</td>
+			 						<td>{{q.question}}</td>
+
+			 						{% if q.control==1 %}
+
+			 							<td><input type="checkbox" name="member"></td>
+			 							<td><input type="checkbox" name="member"></td>
+			 							<td><input class="input" type="text" name=""></td>
+
+			 						{% else %}
+
+			 							<td colspan="3"><input class="input" type="date" name=""></td>
+
+
+			 						{% endif %}
+
+
+			 					    </tr>
+		 						{% endif %}
+
+		 					{% endfor %}
+
+		 				{% endfor %}
+		
+		 			</tbody>
+		 		</table>
+			</div>
+		</div>
+	   </div>
+	 </div>
+							 
+{% endblock %}

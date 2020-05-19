@@ -1,0 +1,1 @@
+from blueprints.backend.admin_hospital.views import admin_hospital

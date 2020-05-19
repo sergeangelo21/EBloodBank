@@ -1,0 +1,166 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="{{ url_for('backend.inventory', filter='all', search='#') }}" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<div class="card-header">
+								<p class="card-header-title">Request Information</p>
+							</div>
+							<div class="card-content">
+								<table class="table is-fullwidth">
+									<tbody>
+										<tr>
+											<th width="200">Name</th>
+											<td>{{ request.patient }}</td>
+										</tr>
+										<tr>
+											<th width="200">Quantity</th>
+											<td>{{ request.quantity }}</td>
+										</tr>
+										<tr>
+											<th width="200">Blood Group</th>
+											<td>{{ request.blood_group }}</td>
+										</tr>
+										<tr>
+											<th width="200">Purpose</th>
+											<td>{{ request.purpose }}</td>
+										</tr>
+										<tr>
+											<th width="200">Date Created</th>
+											<td>{{ request.date_created }}</td>
+											</tr>
+										<tr>
+											<th width="200">Date Processed</th>
+											<td>{{ request.date_processed }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>	
+
+							{% if request.status=='N' or request.status=='P' %}
+
+							<form action='' method="POST">
+								{{ form.hidden_tag() }}
+							<div class="column is-12">
+								<div class="field is-horizontal">
+								  <div class="field-label is-normal">
+								    <label class="label" style = "color:red">
+								    	{% if request.status=='N' %}
+								    		Available resources: {{avail}}
+								    	{% else %}
+								    		{% if request.quantity-avail<=0 %}
+								    			Available resource(s): {{avail}}
+								    		{% else %}
+								    			{{request.quantity-avail}} more resource(s): 
+								    		{% endif %}
+								    	{% endif %}
+									</label>
+								  </div>
+								  <div class="field-body">
+								    <div class="field is-narrow">
+								      <div class="control">
+								        <div class="select is-fullwidth">								    {{ form.action(class_='input', onchange= "show_reason()") }}
+								        </div>
+								      </div>
+								    </div>
+								  <div class="field-label is-normal" id = "reason_label" hidden>
+								    <label class="label">
+								    	Reason:
+									</label>
+								  </div>
+ 								  <div class="field-label is-normal" id = "center_label" hidden>
+								    <label class="label">
+								    	To:
+									</label>
+								  </div>
+								  <div class="field-body">
+								    <div class="field is-narrow">
+								      <div class="control" id = "reason_control" hidden>
+								        <div class="select is-fullwidth">
+								      		{{form.reason(class_='input')}}
+								       	</div>
+								      </div>
+								      <div class="control" id = "center_control" hidden>
+								        <div class="select is-fullwidth">
+								      				
+								        </div>
+								      </div>
+								    </div>
+							        <div class="field">
+								      {{form.submit(class_="button is-info")}}
+								    </div>
+								  </div>
+								</div>
+							</div>
+						    </form>
+
+							{% else %}
+							<div class="column is-12">
+								<div class="field is-horizontal">
+								  <div class="field" align = center>
+								    <label class="label">Status:
+
+								    {% if request.status=='A' %}
+
+								    	Approved!
+
+								    {% elif request.status=='D' %}
+
+								    	Declined due to {{request.remarks}}
+
+								    {% endif %}
+
+									</label>
+								  </div>
+								 </div>
+							</div>
+
+							{% endif %}
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+<script>
+
+	function show_reason(){
+
+		value = document.getElementById('action').value
+
+		if (value=='D'){
+			document.getElementById('reason_control').hidden = false
+			document.getElementById('reason_label').hidden = false
+			document.getElementById('center_control').hidden = true		
+			document.getElementById('center_label').hidden = true
+		}
+		else if (value=='R'){
+			document.getElementById('center_control').hidden = false
+			document.getElementById('center_label').hidden = false	
+			document.getElementById('reason_control').hidden = true		
+			document.getElementById('reason_label').hidden = true		
+		}
+		else{
+			document.getElementById('reason_control').hidden = true		
+			document.getElementById('reason_label').hidden = true
+			document.getElementById('center_control').hidden = true		
+			document.getElementById('center_label').hidden = true
+		}
+	}
+
+</script>
+
+{% endblock %}

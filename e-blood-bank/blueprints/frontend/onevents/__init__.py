@@ -1,0 +1,1 @@
+from blueprints.frontend.onevents.views import onevents

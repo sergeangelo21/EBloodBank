@@ -1,0 +1,117 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+
+<style>
+    table {
+      line-height: 40px;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 500px;
+    }
+
+    th {
+      background: #ed1c40;
+      color: #fff;
+      border: none;
+    }
+
+    tr:hover:not(th) {
+        background-color: rgba(211, 211, 211, .2);
+    }
+
+    .media {
+    margin-left: 10px;
+    }
+
+    a {
+        color: black;
+    }
+
+</style>
+
+    <div class="column" >
+        <div class="card box">
+            <div class="card-header">
+                <p class="card-header-title">Request Blood</p>
+            </div>
+            <br>
+
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="card">
+                        <div class="tile is-parent">
+                            <div class="tile is-child">
+                                <table class="table">
+                                    {% if not current_request %}
+                                        {% for hospitals in hospitals %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{url_for('users.request_center', center_id = hospitals.id)}}">
+                                            <article class="media">
+                                                <figure class="media-left">
+                                                    <p class="image is-96x96">
+                                                      <img  src="https://www.brightfind.com/images/services/design/icon-design-users.png">
+                                                    </p>
+                                                </figure>
+                                                <div class="media-content">
+                                                    <div class="content">
+                                                      <p>
+                                                        <strong>{{hospitals.name}}</strong>
+                                                        <br>
+                                                        Email: {{hospitals.email_address}} <br>
+                                                        Location: {{hospitals.address}}
+                                                      </p>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                        {% endfor %}
+                                {% else %}
+
+                                {% include 'request/_expiration.html'%}
+
+                                {% endif %}
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            {% if not all_request %}
+
+                            No previous request(s) found! 
+                            
+                            {% else %}
+
+                            <b>PREVIOUS REQUESTS DETAILS</b><br>
+
+                            {% for request in all_request %}
+                                       
+                            <div class="column">
+                                <div class="card box">
+                                    <b>Patient's Name</b>: {{current_request.patient}} <br>
+                                    <b>Blood Group</b>: {{current_request.blood_group}} <br>
+                                    <b>Quantity</b>: {{current_request.quantity}} <br>
+                                    <b>Date Requested</b>: {{request.date_created.strftime('%B %d, %Y')}} at {{request.date_created.strftime('%I:%M:%S %p')}} <br> 
+                                    <b>Status</b>: {{request.status}} <br><br>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+                        </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+{% endblock %}

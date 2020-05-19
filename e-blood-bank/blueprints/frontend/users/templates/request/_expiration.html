@@ -1,0 +1,107 @@
+
+<body onload = "{% if current_request.status=='N' %} Default() {% elif current_request.status=='A'%} Countdown() {% else %} {% endif %}">
+
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="content" align = center>
+                            <label class="subtitle has-text-centered" id = "request_head" hidden>
+                                     Please claim your request in:
+                            </label>
+                            <br>
+                             <label class="title has-text-centered" id = "request_title">
+                             
+                             </label>
+                             <br>
+                            <label class="subtitle has-text-centered" id = "request_sub" hidden>
+                                     HR | MIN | SEC
+                            </label>
+
+                        </div>
+                      </div>
+
+                        <div class="column">
+                                <div class="card box">
+                                    <b> YOUR CURRENT REQUEST: </b> <br> <br>
+                                    <b>Patient's Name</b>: {{current_request.patient}} <br>
+                                    <b>Blood Group</b>: {{current_request.blood_group}} <br>
+                                    <b>Quantity</b>: {{current_request.quantity}} <br>
+                                    <b>Date Requested</b>: {{current_request.date_created.strftime('%B %d, %Y')}} at {{current_request.date_created.strftime('%I:%M:%S %p')}} <br>
+                                </div>
+                        </div>
+
+                      <div class="content has-text-centered" id = "actions">
+                        <br><a href = "{{url_for('users.request_action', action = 'Append')}}" id="append">
+                            <button class = "button is-primary">Append Request</button>
+                        </a>&nbsp; 
+                        <a href = "{{url_for('users.request_action', action = 'Cancel')}}">
+                            <button class = "button is-primary">Cancel Request</button>
+                        </a>
+                        <br><br>
+                      </div>
+                    </div>
+</body>
+
+<script type="text/javascript">
+
+    function Default(){
+
+     request = document.getElementById('request_title')
+     request.innerHTML  = 'Please wait while the center approves your request. <br> Thank you!'
+
+     re = document.getElementById('append')
+     re.style.display = 'none'
+
+    }
+
+    function Countdown(){ 
+    	
+        request = document.getElementById('request_title')
+
+        start = '{{current_request.date_processed}}'
+        created = new Date(start)
+        current = new Date()
+        limit = new Date(created.setHours(created.getHours()+6))
+
+        hours = (limit.getHours()-current.getHours())
+        minutes = (limit.getMinutes()-current.getMinutes())
+        seconds = (limit.getSeconds()-current.getSeconds())
+
+        document.getElementById('request_sub').style.display = "inline-block"   
+        document.getElementById('request_head').style.display = "inline-block"   
+
+        	setInterval(function() { 
+
+                    hours = (limit.getHours()-current.getHours())
+                    minutes = (limit.getMinutes()-current.getMinutes())
+                    seconds = (limit.getSeconds()-current.getSeconds())
+
+                    if (seconds<0){
+                        seconds = 60 + seconds
+                        minutes = minutes - 1
+                    }
+
+                    if (minutes<0){
+                        minutes = 60 + minutes
+                        hours = hours - 1
+                    }
+
+                    if (hours<0){
+                        minutes = -1
+                        seconds = -1
+                    }
+
+                if ((hours>0 || minutes>0 || seconds>0) && current<=limit){
+                    limit = new Date(limit.setSeconds(limit.getSeconds()-1))
+        		      document.getElementById('request_title').innerHTML= hours + ':' + minutes + ':' + seconds   
+        		}
+
+                else {
+
+                    document.getElementById('request_title').innerHTML = "Request Expired"
+                    document.getElementById('request_sub').innerHTML = "6 hours has been exceeded"
+                }
+        	}, 1000)
+
+        }
+
+</script>

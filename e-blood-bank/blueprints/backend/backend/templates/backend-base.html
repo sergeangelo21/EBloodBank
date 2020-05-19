@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} | eBloodBank</title>
+        {% else %}
+        <title>eBloodBank</title>
+        {% endif %}
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type='text/javascript' src='http://code.jquery.com/jquery-1.6.4.js'></script>
+
+    </head>
+<body>
+
+    <nav class="navbar is-danger">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+
+                <a href="{{ url_for('backend.dashboard') }}" class="navbar-item">
+                    <img src="">
+                    <strong>eBloodBank</strong></a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="{{url_for ('backend.messages')}}" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable ">
+                        <a href="#" class="navbar-link">
+                            <i class="fa fa-user"></i></a>
+                        <div class="navbar-dropdown is-boxed">
+                            </a>
+                            </a>
+                            <a href="{{url_for ('login.logout')}}" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                    <i class="fa fa-sign-out"></i>
+                                </span>
+                                &nbsp Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+            <div class="columns">
+                <div class="column is-2">
+                    <aside class="menu">
+                      <p class="menu-label">
+                        Menu
+                      </p>
+                      <ul class="menu-list">
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.dashboard')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-dashboard"></i>
+                            </span>
+                            Dashboard</a>                                               
+                        </li>
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.request', filter='all', search = '#')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-exclamation-circle"></i>
+                            </span>
+                            Request</a>
+                        </li>
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.donors')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-users"></i>
+                            </span>
+                            Donors</a>
+                        </li>
+
+
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.hospitals')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-hospital-o"></i>
+                            </span>
+                            Hospitals</a>
+                        </li>
+
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.events')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-calendar"></i>
+                            </span>
+                            Events</a>
+                        </li>
+                      
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.inventory', filter='all', search = '#')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-cubes"></i>
+                            </span>
+                            Inventory</a>
+                        </li>
+                        <li>
+                            <a class="has-text-weight-bold is-size-5" href="{{url_for('backend.phlebotomist')}}">
+                            <span class="icon is-small">
+                             <i class="fa fa-user-md"></i>
+                            </span>
+                            Phlebotomist</a></li>
+                      </ul>
+                    </aside>
+                </div>
+                {% block content %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+				<div class="column">
+					<div class="column">
+						<nav class="level is-marginless">
+							<div class="level-left">
+
+								<span class="icon is-small">
+					       		 <i class="fa fa-heart"></i>
+					      		</span>&nbsp
+
+								<strong class="subtitle has-text-weight-bold">Home</strong>
+							</div>
+
+							<div class="level-right">
+					    		<form action method="POST">
+					    			<div class="field has-addons movetoleft is-dark">
+									  <div class="control">
+									    <input class="input" type="text" placeholder="Search">
+									  </div>
+									  <div class="control">
+									    <a class="button is-info">
+									      Search
+									    </a>
+									  </div>
+									</div>
+					    		</form>
+					    	</div>
+					    </nav>
+
+					    <hr class="is-fullwidth">
+					    
+					  <div class="tile is-parent">
+					    <div class="tile is-child notification is-light">
+					    	<div class="tile is-ancestor">
+							  <div class="tile is-parent">
+							    <article class="tile is-child box">
+							     <img src="">
+							    </article>
+							  </div>
+							  <div class="tile is-parent">
+							    <article class="tile is-child box">
+							     <img src="">
+							    </article>
+							  </div>
+							</div>
+
+							<div class="tile is-ancestor">
+							  <div class="tile is-parent">
+							    <article class="tile is-child box">
+							    	<p class="subtitle has-text-weight-bold has-text-centered"></p>
+							    	
+							    BLOOD
+							     <progress class="progress is-primary" value="40" max="100">30</progress>
+							     BLOOD
+								     <progress class="progress is-primary" value="30" max="100">30%</progress>
+							    </article>
+							  </div>
+							  <div class="tile is-parent">
+							    <article class="tile is-child box">
+							     <p class="subtitle has-text-weight-bold has-text-centered">HIGH STOCK BLOOD TYPE</p>
+							    	
+							    	A+
+							     <progress class="progress is-danger" value="35" max="100">30%</progress>
+							    	B+
+								     <progress class="progress is-danger" value="20" max="100">30%</progress>
+							  </div>
+							</div>
+
+							<div>
+								<img src="">
+							</div>
+					    	
+					    </div>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+{% endblock %}

@@ -1,0 +1,289 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+<style>
+
+h1 {
+
+	margin-left: 0px;
+	width: 230px;
+	height: 42px;
+
+
+	}
+h2 {
+
+	margin-left: 0px;
+	width: 230px;
+	height: 42px;
+
+
+	}
+
+
+</style>
+
+
+	<div class="column">
+		<div class="card box">
+			<div class="columns">
+				<div class="column is-3">
+					<figure class="image is-132x132">
+			            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-bUtMrovoWkw733UD5sQCF6aaw5VCug-B8Wi3CCvAtaBpS8JMA">
+			        </figure>
+			        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			        <button class="button is-info">Change Picture</button>
+
+			<h1>
+						<div class="column">
+					<div class="card">
+						<div class="tabs is-boxed">
+				
+						  <ul>
+						      <a href="#">
+						        <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
+						        <span>Account Settings</span>
+						      </a>
+						    </li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</h1>
+
+			<h2>	
+						<div class="column">
+					<div class="card">
+						<div class="tabs is-boxed">
+						  <ul>
+						  
+						      <a href="{{ url_for('users.setting_settings_password', user=user.id) }}">
+						        <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
+						        <span>Password Settings</span>
+						      </a>
+						   
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</h2>
+
+						<div class="column">
+					<div class="card">
+						<div class="tabs is-boxed">
+						  <ul>
+					
+						      <a href="{{ url_for('users.setting_settings_other', user=user.id) }}">
+						        <span class="icon is-small"><i class="fa fa-user" aria-hidden="true"></i></span>
+						        <span>Other Settings</span>
+						      </a>
+						    </li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				</div>
+				<div class="column is-9">
+					<br><br><br>
+					<p  class="is-size-3 has-text-weight-bold">
+						
+
+
+
+						
+
+							<div class="column">
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<form action ="" method = "POST">
+								{{form.hidden_tag()}}
+								<div class="card-header">
+									<p class="card-header-title">Edit Account</p>
+								</div>
+								<div class="card-content">
+									<div class="field">
+										{{form.surname.label(class='label')}}
+										<div class="control">
+											{{form.surname(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.first_name.label(class='label')}}
+										<div class="control">
+											{{form.first_name(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.middle_name.label(class='label')}}
+										<div class="control">
+											{{form.middle_name(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.birth_date.label(class='label')}}
+										<div class="control">
+											{{form.birth_date(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.blood_group.label(class='label')}}
+										<div class="control">
+											{{form.blood_group(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.civil_status.label(class='label')}}
+										<div class="control">
+											{{form.civil_status(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.gender.label(class='label')}}
+										<div class="control">
+											{{form.gender(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.nationality.label(class='label')}}
+										<div class="control">
+											{{form.nationality(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.religion.label(class='label')}}
+										<div class="control">
+											{{form.religion(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.education.label(class='label')}}
+										<div class="control">
+											{{form.education(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.occupation.label(class='label')}}
+										<div class="control">
+											{{form.occupation(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.house_no.label(class='label')}}
+										<div class="control">
+											{{form.house_no(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.street.label(class='label')}}
+										<div class="control">
+											{{form.street(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.barangay.label(class='label')}}
+										<div class="control">
+											{{form.barangay(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.town_municipality.label(class='label')}}
+										<div class="control">
+											{{form.town_municipality(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.province_city.label(class='label')}}
+										<div class="control">
+											{{form.province_city(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.type.label(class='label')}}
+										<div class="control">
+											{{form.type(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.zip_code.label(class='label')}}
+										<div class="control">
+											{{form.zip_code(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.telephone_no.label(class='label')}}
+										<div class="control">
+											{{form.telephone_no(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.mobile_no.label(class='label')}}
+										<div class="control">
+											{{form.mobile_no(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.email_address.label(class='label')}}
+										<div class="control">
+											{{form.email_address(class='input')}}
+										</div>
+									</div>
+									<div class="field">
+										{{form.username.label(class='label')}}
+										<div class="control">
+											{{form.username(class='input')}}
+										</div>
+									</div>
+									<hr>
+									{{form.submit(class='button is-primary')}}
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+					</p>
+					<br>
+					<br>
+					 <nav class="level is-mobile">
+					  <div class="level-item has-text-centered">
+					    <div>
+					     
+					      <p class="title"></p>
+					    </div>
+					  </div>
+					  <div class="level-item has-text-centered">
+					    <div>
+					      
+					      <p class="title"></p>
+					    </div>
+					  </div>
+					  <div class="level-item has-text-centered">
+					    <div>
+					    	{% if user.is_donor == "Y" %}
+					    	<p class="title"></p>
+					    	{% else %}
+					    	<p class="title"></p>
+					    	{% endif %}
+					    </div>
+					  </div>
+					</nav>
+				</div>
+					
+			<
+						 
+
+
+				
+
+
+{% endblock %}

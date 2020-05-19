@@ -1,0 +1,29 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{donors.first_name}} {{donors.surname}}</td>
+		<td>{{donors.email_address}}</td>
+		<td>{{donors.province_city}}</td>
+		<td>{{donors.blood_group}}</td>
+		<td>{{donors.status}}</td>
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('backend.donors_show', donors_id=donors.id)}}"><span class="icon is-small"><i class="fa fa-eye"></i></span>&nbsp View</a>
+						<a class="dropdown-item" href="{{url_for('backend.donors_enable', donors_id=donors.id)}}"><span class="icon is-small"><i class="fa fa-check"></i></span>&nbsp Enable</a>
+						<a class="dropdown-item" href="{{url_for('backend.donors_disable', donors_id=donors.id)}}"><span class="icon is-small"><i class="fa fa-minus-square"></i></span>&nbsp Disable</a>
+					</div>
+				</div>
+			</div>
+
+		</td>
+	</tr>	
+</tbody>

@@ -1,0 +1,13 @@
+ALTER TABLE `event_interview` CHANGE `question` `question` VARCHAR(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+UPDATE `event_interview` SET `question` = 'In the past 4 WEEKS have you taken any medications and/or vaccinations?' WHERE `event_interview`.`id` = 2;
+UPDATE `event_interview` SET `question` = 'In the past 3 DAYS have you taken aspirin?' WHERE `event_interview`.`id` = 3;
+UPDATE `event_interview` SET `question` = 'Had a tattoo applied, ear and body piercing, acupuncture, needle stick injury or accidental contact with blood?' WHERE `event_interview`.`id` = 7;
+UPDATE `event_interview` SET `question` = 'Had rash and/or fever? Was/Were this/these also associated with arthralgia or arthritis or conjunctivitis?' WHERE `event_interview`.`id` = 25;
+UPDATE `event_interview` SET `question` = 'Are you aware that an HIV/Hepattitis infected person can still transmit the virus despite a negative HIV/Hepatitis test?' WHERE `event_interview`.`id` = 30;
+
+ALTER TABLE `event_information` ADD `organizer` VARCHAR(60) NOT NULL AFTER `venue`;
+
+ALTER TABLE `event_participate` ADD `type` CHAR(1) NOT NULL AFTER `user_id`;
+
+ALTER TABLE `blood_purchase` CHANGE `date_purchased` `date_purchased` DATETIME NULL;	

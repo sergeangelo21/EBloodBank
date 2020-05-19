@@ -1,0 +1,54 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{request.id}}</td>
+		<td>{{request.first_name}} {{request.surname}}</td>
+		<td>{{request.patient}}</td>
+		<td>{{request.quantity}}</td>
+		<td>{{request.blood_group}}</td>
+
+		{% if filter=='all' %}
+
+			<td>{% if request.status=='D' %}
+					Declined
+				{% elif request.status=='A' %}
+					Approved
+				{% elif request.status=='N' %}
+					New
+				{% else %}
+					Pending
+				{% endif %}
+			</td>
+
+		{% elif filter=='new' %}
+
+			<td>{{request.date_created.strftime('%B %d, %Y at %I:%M %p')}}</td>
+
+		{% else %}
+
+			{% if request.date_processed==None %}
+				<td>-</td>
+			{% else %}
+				<td>{{request.date_processed.strftime('%B %d, %Y at %I:%M %p')}}</td>
+			{% endif %}
+
+		{% endif %}
+
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('backend.request_show', request_id=request.id)}}"><span class="icon is-small"><i class="fa fa-eye"></i></span>&nbsp View</a>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>	
+</tbody>

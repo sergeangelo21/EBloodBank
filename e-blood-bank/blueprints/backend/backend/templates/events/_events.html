@@ -1,0 +1,29 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{ events.name }}</td>
+		<td>{{ events.description }}</td>
+		<td>{{ events.venue }}</td>
+		<td>{{ events.organizer }}</td>
+		<td>{{ events.event_date }}</td>
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('backend.events_show', events_id=events.id)}}"><span class="icon is-small"> <i class="fa fa-eye"></i> </span>&nbsp View</a>
+						<a class="dropdown-item" href="{{url_for('backend.events_edit', events_id=events.id)}}"><span class="icon is-small"> <i class="fa fa-edit"></i></span>&nbsp Edit</a>
+						<a class="dropdown-item confirm-delete" href=""><span class="icon is-small"> <i class="fa fa-trash"></i></span>&nbsp Delete</a>
+					</div>
+				</div>
+			</div>
+
+		</td>
+	</tr>	
+</tbody>

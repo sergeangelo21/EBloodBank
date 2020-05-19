@@ -1,0 +1,79 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+
+	<div class="column">
+		<div class="columns">
+			<div class="column"><br>
+				<a href="/request" class="button">
+					<span class="icon is-small">
+        				<i class="fa fa-long-arrow-left"></i>
+					</span>
+					<span>Back</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="card box">
+				<div class="columns">
+					<div class="column is-3">
+						<figure class="image is-132x132">
+				            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-bUtMrovoWkw733UD5sQCF6aaw5VCug-B8Wi3CCvAtaBpS8JMA">
+				        </figure>
+					</div>
+					<div class="column is-9">
+						<div class="columns">
+							<div class="column"> 
+								<br><br>
+								<p  class="is-size-3 has-text-weight-bold">{{hospital.name}}</p>
+								<p class="is-size-6 has-text-info">{{hospital.email_address}}</p><br>
+								<p class="is-size-6">Address: {{hospital.address}}</p>
+								<p class="is-size-6">Contact Number: {{hospital.telephone_number}}</p>
+								
+							</div>
+							<div class="column"> 
+								<br><br><br>
+								<p class="has-text-centered">
+									<a href="{{url_for('users.request_form', center_id=hospital.id)}}"><button class="button is-medium is-primary">Request Now</button></a>
+								</p>
+							</div>
+						</div>
+
+						<nav class="level">
+						  <div class="level-item has-text-centered">
+						    <div>
+						      <p class="heading">Total no. of Stocks</p>
+						      <p class="title">{{stocks}}</p>
+						    </div>
+						  </div>
+						  <div class="level-item has-text-centered">
+						    <div>
+						      <p class="heading">Acceptance Rate</p>
+						      <p class="title">{{accept}} %</p>
+						    </div>
+						  </div>
+						</nav>
+						 
+					</div>
+						
+				</div>
+
+				<div class="columns">
+					<div class="column">
+						<div class="box">
+							summary
+						</div>
+					</div>
+					<div class="column">
+						<div class="box">
+							graphs
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

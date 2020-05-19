@@ -1,0 +1,37 @@
+<tbody>
+	<tr class="table-row">
+		<td>{{ roster.first_name }} {{ roster.surname }}</td>
+		<td>{{ roster.email_address }}</td>
+		<td>{{ roster.house_no }} {{ roster.street }} {{ roster.barangay }} {{ roster.town_municipality }} {{ roster.province_city }}</td>
+		<td>
+			{% if roster.type=='W' %}
+				Walk-In
+			{% elif roster.type=='R' %}
+				Replacement
+			{% elif roster.type=='P' %}
+				Patient-Directed
+			{% else %}
+				Scheduled
+			{% endif %}
+		</td>
+		<td>
+			<div class="dropdown is-hoverable">
+				<div class="dropdown-trigger">
+					<button class="button">
+						<span>Actions</span>
+						<span class="icon">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu">
+					<div class="dropdown-content">
+						<a class="dropdown-item" href="{{url_for('onevents.roster_show', events_id=roster.user_id)}}" class="icon is-small"><i class="fa fa-eye"> </i> &nbsp View</a>
+					
+						<!-- <a class="dropdown-item" href="{{url_for('onevents.onevent_show', events_id=roster_id)}}"><span class="icon is-small"><i class="fa fa-edit"></i></span>&nbsp Edit</a> -->
+						<a class="dropdown-item confirm-delete" href=""><span class="icon is-small"><i class="fa fa-trash"></i></span>&nbsp Delete</a>
+				</div>
+			</div>
+		</td>
+	</tr>
+</tbody>

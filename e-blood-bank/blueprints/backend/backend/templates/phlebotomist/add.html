@@ -1,0 +1,376 @@
+{% extends "backend-base.html" %}
+
+{% block content %}
+
+<style>
+    
+    p.title
+    {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+            <div class="column">
+                <div class="columns">
+                    <div class="column"><br>
+                        <a href="/backend/phlebotomist" class="button">
+                            <span class="icon is-small">
+                                <i class="fa fa-long-arrow-left"></i>
+                            </span>
+                            <span>Back</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <div class="card box">
+                            <div class="card-header">
+                                <p class="card-header-title">Add Phlebotomist</p>
+                            </div><br>
+                                <div class="card box">
+                                    <form action="" method="POST">
+                                        {{ forms.hidden_tag() }}
+                                        <p class="title"> Name </p>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.surname(class_='input', placeholder="Surname")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                        {% for error in forms.surname.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.first_name(class_='input', placeholder="First Name")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                        {% for error in forms.first_name.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.middle_name(class_='input', placeholder="Middle Name")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                        {% for error in forms.middle_name.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div><br>
+                                            </div>
+                                        </div>
+
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    {{forms.birth_date.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.birth_date(class_='input', type="date")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-birthday-cake"></i>
+                                                        </span>
+                                                        {% for error in forms.birth_date.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column is-2">
+                                                <div class="field">
+                                                    {{forms.blood_group.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.blood_group(class_='input', placeholder="Blood Group")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-heartbeat"></i>
+                                                        </span>
+                                                        {% for error in forms.blood_group.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    {{forms.civil_status.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.civil_status(class_='input', placeholder="Civil Status")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                        {% for error in forms.civil_status.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column is-2">
+                                                <div class="field">
+                                                    {{forms.gender.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.gender(class_='input', placeholder="Gender")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-venus-mars"></i>
+                                                        </span>
+                                                        {% for error in forms.gender.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    {{forms.nationality.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.nationality(class_='input', placeholder="Nationality")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-flag"></i>
+                                                        </span>
+                                                        {% for error in forms.nationality.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><br>
+
+                                        <div class="columns">
+                                            <div class="column is-3">
+                                                <div class="field">
+                                                    {{forms.religion.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.religion(class_='input', placeholder="Religion")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-street-view"></i>
+                                                        </span>
+                                                        {% for error in forms.religion.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    {{forms.education.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.education(class_='input', placeholder="Education")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-graduation-cap"></i>
+                                                        </span>
+                                                        {% for error in forms.education.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">                            
+                                                <div class="field">
+                                                    {{forms.occupation.label(class='label')}}
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.occupation(class_='input', placeholder="Occupation")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-briefcase"></i>
+                                                        </span>
+                                                        {% for error in forms.occupation.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><br>
+
+                                        <p class="title"> Address </p>
+                                        <div class="columns">
+                                            <div class="column is-2">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.house_no(class_='input', placeholder="House No.")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-hashtag"></i>
+                                                        </span>
+                                                        {% for error in forms.house_no.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.street(class_='input', placeholder="Street")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-road"></i>
+                                                        </span>
+                                                        {% for error in forms.street.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.barangay(class_='input', placeholder="Barangay")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-archive"></i>
+                                                        </span>
+                                                        {% for error in forms.barangay.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column is-2">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.zip_code(class_='input', placeholder="Zip Code")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-hashtag"></i>
+                                                        </span>
+                                                        {% for error in forms.zip_code.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.town_municipality(class_='input', placeholder="Town/Municipality")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-map-marker"></i>
+                                                        </span>
+                                                        {% for error in forms.town_municipality.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.province_city(class_='input', placeholder="Province/City")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-building"></i>
+                                                        </span>
+                                                        {% for error in forms.province_city.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column is-2">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.type(class_='input', placeholder="Type")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-briefcase"></i>
+                                                        </span>
+                                                        {% for error in forms.type.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><br>
+
+                                        <p class="title"> Contact </p>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.telephone_no(class_='input', placeholder="Telephone Number")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-briefcase"></i>
+                                                        </span>
+                                                        {% for error in forms.telephone_no.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.mobile_no(class_='input', placeholder="Mobile Number")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-briefcase"></i>
+                                                        </span>
+                                                        {% for error in forms.mobile_no.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">                            
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.email_address(class_='input', placeholder="E-mail Address")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-briefcase"></i>
+                                                        </span>
+                                                        {% for error in forms.email_address.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><br>
+
+                                        <p class="title"> Account </p>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.username(class_='input', placeholder="Username")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                                        {% for error in forms.username.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="control has-icons-left">
+                                                        {{ forms.password(class_='input', placeholder="Password")}}
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        {% for error in forms.password.errors %}
+                                                        <span style="color: red;">[{{ error }}]</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        {{ forms.submit(class_='button is-primary')}}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}

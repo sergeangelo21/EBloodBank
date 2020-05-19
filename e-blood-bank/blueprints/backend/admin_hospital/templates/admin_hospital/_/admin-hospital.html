@@ -1,0 +1,202 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Hospital</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+
+    <nav class="navbar is-danger">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+
+                 <a href="" class="navbar-item">
+                    <img src="">
+                    <strong>eBloodBank</strong></a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="#" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-heart"></i>
+                        </span>
+                    </a>
+                    <a href="#" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-bell"></i>
+                        </span>
+                    </a>
+                    <a href="" class="navbar-item">
+                        <span class="icon is-small has-text-white">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable ">
+                        <a href="#" class="navbar-link">
+                            <i class="fa fa-user"></i></a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a href="" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                <i class="fa fa-user-circle"></i>
+                                </span>
+                                &nbsp User
+                            </a>
+                            <a href="#" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                <i class="fa fa-gear"></i>
+                                </span>
+                                &nbsp Settings
+                            </a>
+                            <a href="" class="navbar-item">
+                                <span class="icon is-small has-text-black">
+                                    <i class="fa fa-sign-out"></i>
+                                </span>
+                                &nbsp Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="columns">
+        <div class="column is-2">
+            <aside class="menu">
+              <p class="menu-label">
+                Menu
+              </p>
+              <ul class="menu-list">
+                <li>
+                    <a class="has-text-weight-bold is-size-5" href="">
+                    <span class="icon is-small">
+                     <i class="fa fa-home"></i>
+                    </span>
+                    Home</a>                                                
+                </li>
+
+                <li>
+                    <a class="has-text-weight-bold is-size-5" href="">
+                    <span class="icon is-small">
+                     <i class="fa fa-cubes"></i>
+                    </span>
+                    Iventories</a>
+                </li>
+
+                <li>
+                    <a class="has-text-weight-bold is-size-5" href="">
+                    <span class="icon is-small">
+                     <i class="fa fa-plus-square"></i>
+                    </span>
+                    PRC-C</a>
+                </li>
+
+                 <li>
+                    <a class="has-text-weight-bold is-size-5" href="">
+                    <span class="icon is-small">
+                     <i class="fa fa-question-circle"></i>
+                    </span>
+                    Help</a>
+                </li>
+
+              </ul>
+            </aside>
+        </div>
+
+        <div class="column">
+            <div class="card box">
+                <div class="card-header">
+                    <p class="card-header-title">Inventory</p>
+                </div>  
+                
+                <nav class="level">
+            
+                    <div class="level-left">
+
+                        <div class="level-item">
+
+                            <div class="card-content field has-addons">
+                                
+                                <a href="" class="button is-primary">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <span>Add</span>
+                                </a>
+
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </nav>
+
+                <hr class="is-marginless">
+                <div class="card-content">
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Blood Type</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A+</td>
+                                <td>1</td>
+                                <td>2018-01-04</td>
+                                <td>
+                                    <div class="dropdown is-hoverable">
+                                        <div class="dropdown-trigger">
+                                            <button class="button">
+                                                <span>Actions</span>
+                                                <span class="icon">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-content">
+                                                <a class="dropdown-item" href="">View</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                    
+                                <td>B-</td>
+                                <td>2</td>
+                                <td>2018-06-20</td>
+                                <td>
+                                    <div class="dropdown is-hoverable">
+                                        <div class="dropdown-trigger">
+                                            <button class="button">
+                                                <span>Actions</span>
+                                                <span class="icon">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-content">
+                                                <a class="dropdown-item" href="">View</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

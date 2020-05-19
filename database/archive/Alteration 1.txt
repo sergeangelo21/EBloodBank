@@ -1,0 +1,3 @@
+ALTER TABLE `blood_center` ADD `account_id` INT NOT NULL AFTER `id`;
+
+ALTER TABLE `blood_request` CHANGE `date_created` `date_created` DATETIME NOT NULL, CHANGE `date_processed` `date_processed` DATE NOT NULL;

@@ -1,0 +1,49 @@
+{% extends "login-base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="block">
+	<br>
+		<div class="columns">
+			<div class="column is-8">
+			</div>
+				<div class="container has-text-centered">
+					<div class="transbox"><br>
+						<div class="column"><br>
+							<figure class="avatar">
+		                    	<img src="cover5.png">
+		                	</figure>      
+									 
+						    <form action="" method="post"><br><br>
+						        {{ form.hidden_tag() }}
+						        <h1>Sign In</h1><br>
+						        <p>
+						            {{ form.username.label }}<br>
+						            {{ form.username(size=32) }}<br>
+						            {% for error in form.username.errors %}
+						            <span style="color: red;">[{{ error }}]</span>
+						            {% endfor %}
+						        </p><br>
+						        <p>
+						            {{ form.password.label }}<br>
+						            {{ form.password(size=32) }}<br>
+						            {% for error in form.password.errors %}
+						            <span style="color: red;">[{{ error }}]</span>
+						            {% endfor %}
+						        </p><br>
+						        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+						        <p>New User? <a href="{{ url_for('login.signup') }}">Click to Register!</a></p><br>
+						        <p>{{ form.submit() }}</p>
+						    </form>
+							<br>
+						</div>
+					</div><br>
+					<div class="margin-top">
+					</div>
+				</div>
+		</div>			
+	</div>	
+</div>
+
+{% endblock %}

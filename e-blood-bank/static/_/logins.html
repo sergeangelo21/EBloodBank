@@ -1,0 +1,94 @@
+
+
+
+<style type="text/css">
+		p
+	{
+		color: black;
+		display: block;
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	a
+	{
+		color:#3273dc;
+	}
+
+	a:hover
+	{
+		color:#a41414;
+	}
+
+
+		.color{
+		color: white;
+		background-color: #a41414;
+
+	}
+	
+
+
+</style>
+
+<body>
+	<div class="block">
+ <div class="columns">
+		<div class="column is-7">
+		</div>		
+			
+	<div class="container has-text-centered">
+		<div class="box">
+			<div class="columns">
+				<div class="column is-1">
+					</div>
+					
+			<div class="column is-10">
+				    <form>
+				    	<figure class="image is-256x256">
+                    <img src="{{ url_for('static', filename='frontend/login/images/logo.png') }}">
+                </figure> 
+                
+                       {{ form.hidden_tag() }}
+                        <div class="field">
+  							<label class="label has-text-dark">Login</label>
+ 								<div class="control has-icons-left has-icons-right">
+ 									{{ form.username(class_='input', placeholder="Username")}}
+    								<span class="icon is-small is-left">
+      									<i class="fa fa-user"></i>
+    								</span>
+    								{% for error in form.username.errors %}
+			                        <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+  								</div>
+						</div>
+
+						 <div class="field">
+  							<div class="control has-icons-left has-icons-right">
+   								{{ form.password(class_='input', placeholder="Password")}}
+    								<span class="icon is-small is-left">
+      									<i class="fa fa-key"></i>
+    								</span>
+    							{% for error in form.username.errors %}
+			                        <span style="color: red;">[{{ error }}]</span>
+			                            {% endfor %}
+
+  							</div>				
+						</div>
+
+                        <div class="field">
+                            {{ form.remember_me() }} {{ form.remember_me.label }}<br>                
+						</div>
+							<p>	{{ form.submit(class_='button color') }} </p><br>
+						<p>New User? &nbsp; <a href="{{ url_for('login.signup') }}">Click to Register!</a></p>
+   						<br>
+   						<br>
+                        </form>
+				</div>
+			</div> 
+	</div>
+</div>
+</div>
+</body>
+</html>
+			

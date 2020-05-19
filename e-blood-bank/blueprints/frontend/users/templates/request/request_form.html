@@ -1,0 +1,54 @@
+{% extends "users-base.html" %}
+
+{% block content %}
+<div class="column">
+		<div class="card box">
+			<form action="" method="POST">
+			{{form.hidden_tag()}}
+
+			<div class="columns">
+				<div class="column is-3">
+					<figure class="image is-132x132">
+			            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-bUtMrovoWkw733UD5sQCF6aaw5VCug-B8Wi3CCvAtaBpS8JMA">
+			        </figure>
+			        <br>
+			       <p class="has-text-centered has-text-weight-bold">Send to: <br> {{center.name}}</p>
+			       <br>
+			       <p class="has-text-centered">{{form.submit(class_="button is-primary")}}</p>
+				</div>
+				<div class="column">
+					<div class="card-header">
+						<p class="card-header-title">Request Form</p>
+					</div>
+						<div class="card-content">
+							<div class="field">
+								<label class="label">{{form.patient.label}}</label>
+								<div class="control">
+							    	{{form.patient(class_="input")}}
+							  	</div>
+							</div>
+							<div class="field">
+								<label class="label">{{form.blood_group.label}}</label>
+								<div class="control">
+							    	{{form.blood_group(class_="input")}}
+							  	</div>
+							</div>
+							<div class="field">
+								<label class="label">{{form.quantity.label}}</label>
+								<div class="control">
+							    	{{form.quantity(class_="input")}}
+							  	</div>
+							</div>
+							<div class="field">
+								<label class="label">{{form.purpose.label}}</label>
+								<div class="control">
+							    	{{form.purpose(class_="input")}}
+							  	</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+{% endblock %}

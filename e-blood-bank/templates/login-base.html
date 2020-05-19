@@ -1,0 +1,20 @@
+  <html>
+    <head>
+        {% if title %}
+        <title>{{ title }} | eBloodBank</title>
+        {% else %}
+        <title>eBloodBank</title>
+        {% endif %}
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/frontend/signup/bulma-steps.min.css">
+    <link rel="stylesheet" href="../static/frontend/signup/bulma-steps.min.js">
+    <link rel="stylesheet" href="../static/frontend/signup/bulma-steps.sass">
+    <link rel="stylesheet" href="../static/frontend/signup/bulma-steps.js">
+        
+    </head>
+    <body background="{{ url_for ('static', filename ='frontend/login/images/banner.png') }}" style="background-size: cover;">
+        {% block content %}{% endblock %}
+    </body>
+</html>

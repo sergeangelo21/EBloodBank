@@ -1,0 +1,85 @@
+{% extends "onevents-base.html" %}
+
+{% block content %}
+
+			<div class="column">
+				<div class="columns">
+					<div class="column"><br>
+						<a href="/onevent/roster" class="button">
+							<span class="icon is-small">
+                				<i class="fa fa-long-arrow-left"></i>
+							</span>
+							<span>Back</span>
+						</a>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<div class="card box">
+							<div class="card-header">
+								<p class="card-header-title">Donor Information</p>
+							</div>
+							<div class="card-content">
+								<table class="table is-fullwidth">
+									<tbody>
+										<tr>
+											<th width="200">Name</th>
+											<td>{{ roster.first_name }} {{ roster.middle_name }} {{ roster.surname }}</td>
+										</tr>
+										<tr>
+											<th width="200">E-mail Address</th>
+											<td>{{ roster.email_address }}</td>
+										</tr>
+										<tr>
+											<th width="200">Address</th>
+											<td>{{ roster.zip_code }} {{ roster.house_no }} {{ roster.street }} {{ roster.barangay }} {{ roster.town_municipality }} {{ roster.province_city }}</td>
+										</tr>
+										<tr>
+											<th width="200">Birth Date</th>
+											<td>{{ roster.birth_date }}</td>
+										</tr>
+										<tr>
+											<th width="200">Blood Group</th>
+											<td>{{ roster.blood_group }}</td>
+										</tr>
+										<tr>
+											<th width="200">Civil Status</th>
+											<td>{{ roster.civil_status }}</td>
+										</tr>
+										<tr>
+											<th width="200">Gender</th>
+											<td>{{ roster.gender }}</td>
+										</tr>
+										<tr>
+											<th width="200">Nationality</th>
+											<td>{{ roster.nationality }}</td>
+										</tr>
+										<tr>
+											<th width="200">Religion</th>
+											<td>{{ roster.religion }}</td>
+										</tr>
+										<tr>
+											<th width="200">Education</th>
+											<td>{{ roster.education }}</td>
+										</tr>
+										<tr>
+											<th width="200">Occupation</th>
+											<td>{{ roster.occupation }}</td>
+										</tr>
+										<tr>
+											<th width="200">Telephone No.</th>
+											<td>{{ roster.telephone_no }}</td>
+										</tr>
+										<tr>
+											<th width="200">Mobile No.</th>
+											<td>{{ roster.mobile_no }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}
